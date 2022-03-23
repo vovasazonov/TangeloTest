@@ -1,10 +1,12 @@
-﻿using Project.Scripts.Game.Base.Config;
+﻿using Project.Scripts.Game.Areas.Popups.Model;
 
 namespace Project.Scripts.Game.Base.Model
 {
     public class GameModel : IGameModel
     {
-        public GameModel(IGameConfig config)
+        public IPopupsModel Popups { get; } = new PopupsModel();
+
+        public GameModel()
         {
         }
     }

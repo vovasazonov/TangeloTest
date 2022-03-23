@@ -1,4 +1,5 @@
 ﻿using Project.Scripts.Core.View;
+using Project.Scripts.Game.Areas.Popups.View;
 
 namespace Project.Scripts.Game.Base.View
 {
@@ -6,5 +7,6 @@ namespace Project.Scripts.Game.Base.View
     {
         IViewCreator<IPrimitiveView> Camera { get; }
         IViewCreator<IPrimitiveView> EventSystem { get; }
+        IPopupsView Popups { get; }
     }
 }
