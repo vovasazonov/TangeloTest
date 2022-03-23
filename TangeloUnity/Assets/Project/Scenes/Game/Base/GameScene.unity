@@ -151,7 +151,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -168,7 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac43b20b0bf52bd4ab112238555a0925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 29559a6c8773c3f47b32a7eef83839d0, type: 2}
   _view: {fileID: 65410660}
 --- !u!114 &65410660
 MonoBehaviour:
@@ -184,4 +182,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraPrefab: {fileID: 8448912431225975303, guid: 92f36e9dc5ee58e45bb4dda40158e50c, type: 3}
   _eventSystemPrefab: {fileID: 3593775493451061516, guid: 04e4e78c033b9294b8e4f59d9d0ec8bd, type: 3}
-  _messengerPrefab: {fileID: 8905272042850871654, guid: 234885db7a9a6184f8ef929b8365cbd7, type: 3}
+  _popups: {fileID: 7359175722018303891, guid: 896dbba68c23f3f4ea81b8b0ea12387d, type: 3}
+  _testScreenPrefab: {fileID: -7025232871284847037, guid: ff048e22ae617814bab16c8d72cc7afa, type: 3}

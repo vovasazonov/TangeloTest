@@ -15,6 +15,12 @@ namespace Project.Scripts.Game.Areas.Popups.PopupPresenter
             _model = model;
             
             AddListeners();
+            RenderView();
+        }
+
+        private void RenderView()
+        {
+            _view.Close();
         }
 
         private void AddListeners()

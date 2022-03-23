@@ -4,10 +4,11 @@ namespace Project.Scripts.Game.Base.Model
 {
     public class GameModel : IGameModel
     {
-        public IPopupsModel Popups { get; } = new PopupsModel();
+        public IPopupsModel Popups { get; }
 
-        public GameModel()
+        public GameModel(IPopupsModel popups)
         {
+            Popups = popups;
         }
     }
 }

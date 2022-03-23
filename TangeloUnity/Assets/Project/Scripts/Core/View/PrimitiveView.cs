@@ -6,10 +6,7 @@ namespace Project.Scripts.Core.View
     {
         public void Dispose()
         {
-            if (gameObject)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }

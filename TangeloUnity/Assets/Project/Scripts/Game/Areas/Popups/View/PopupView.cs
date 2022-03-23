@@ -2,20 +2,13 @@
 
 namespace Project.Scripts.Game.Areas.Popups.View
 {
-    [RequireComponent(typeof(Canvas))]
     public abstract class PopupView : MonoBehaviour, IPopupView
     {
         [SerializeField] private string _id;
-
-        private Canvas _canvas;
+        [SerializeField] private Canvas _canvas;
 
         public string Id => _id;
         
-        private void Awake()
-        {
-            _canvas = GetComponent<Canvas>();
-        }
-
         public void SetOrder(int order)
         {
             _canvas.sortingOrder = order;

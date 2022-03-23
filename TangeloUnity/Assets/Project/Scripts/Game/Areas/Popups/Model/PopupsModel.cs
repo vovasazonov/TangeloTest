@@ -5,7 +5,7 @@ using Project.Scripts.Game.Areas.Popups.Model.Sorter;
 
 namespace Project.Scripts.Game.Areas.Popups.Model
 {
-    public class PopupsModel : IPopupsModel, IDisposable
+    public class PopupsModel : IPopupsModel, IDisposable, IPopups
     {
         private readonly List<IPopupModel> _opens = new List<IPopupModel>();
         private readonly IPopupsSorter _sorter = new PopupsSorter();
@@ -69,6 +69,38 @@ namespace Project.Scripts.Game.Areas.Popups.Model
             {
                 _opens.Add(model);
                 _sorter.Sort(model);
+            }
+        }
+        
+        public void Open(string id)
+        {
+            _popups[id].Open();
+        }
+
+        public void Close(string id)
+        {
+            _popups[id].Close();
+        }
+
+        public void CloseAll()
+        {
+            foreach (var popup in _popups.Values)
+            {
+                if (popup.IsOpen)
+                {
+                    popup.Close();
+                }
+            }
+        }
+
+        public void OpenAll()
+        {
+            foreach (var popup in _popups.Values)
+            {
+                if (!popup.IsOpen)
+                {
+                    popup.Open();
+                }
             }
         }
 
