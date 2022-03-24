@@ -1,4 +1,5 @@
 ﻿using Project.Scripts.Core.Presenter;
+using Project.Scripts.Game.Areas.Browser.Model;
 using Project.Scripts.Game.Areas.Popups.Model;
 using Project.Scripts.Game.Areas.Popups.View;
 
@@ -8,11 +9,13 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
     {
         private readonly IPopupView _view;
         private readonly IPopupModel _model;
+        private readonly IBrowserModel _browser;
 
-        protected PopupPresenter(IPopupModel model, IPopupView view)
+        protected PopupPresenter(IPopupModel model, IPopupView view, IBrowserModel browser)
         {
             _view = view;
             _model = model;
+            _browser = browser;
             
             AddListeners();
             RenderView();
@@ -31,6 +34,7 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
             _model.Loading += OnLoading;
             _model.LoadStatusUpdated += OnLoadStatusUpdated;
             _view.CloseClicked += OnCloseClicked;
+            _view.UrlClicked += OnUrlClicked;
         }
 
         private void RemoveListeners()
@@ -41,6 +45,12 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
             _model.Loading -= OnLoading;
             _model.LoadStatusUpdated -= OnLoadStatusUpdated;
             _view.CloseClicked -= OnCloseClicked;
+            _view.UrlClicked -= OnUrlClicked;
+        }
+
+        private void OnUrlClicked(string url)
+        {
+            _browser.Browse(url);
         }
 
         private void OnCloseClicked()

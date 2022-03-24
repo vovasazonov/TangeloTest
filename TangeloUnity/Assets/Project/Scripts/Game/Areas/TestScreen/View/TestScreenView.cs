@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Scripts.Game.Areas.TestMenu.View
+namespace Project.Scripts.Game.Areas.TestScreen.View
 {
     public class TestScreenView : MonoBehaviour, ITestScreenView
     {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Project.Scripts.Core.Presenter;
+using Project.Scripts.Game.Areas.Browser;
 using Project.Scripts.Game.Areas.Popups.View;
 
 namespace Project.Scripts.Game.Areas.Popups.Presenter

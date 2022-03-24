@@ -1,9 +1,9 @@
 ﻿using Project.Scripts.Core.Presenter;
 using Project.Scripts.Core.View;
 using Project.Scripts.Game.Areas.Popups;
-using Project.Scripts.Game.Areas.TestMenu.View;
+using Project.Scripts.Game.Areas.TestScreen.View;
 
-namespace Project.Scripts.Game.Areas.TestMenu.Presenter
+namespace Project.Scripts.Game.Areas.TestScreen.Presenter
 {
     public class TestScreenPresenter : IPresenter
     {

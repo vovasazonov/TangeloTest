@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Project.Scripts.Game.Areas.TestMenu.View
+namespace Project.Scripts.Game.Areas.TestScreen.View
 {
     public interface ITestScreenView : IDisposable
     {
