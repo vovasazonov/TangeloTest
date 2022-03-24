@@ -247,6 +247,8 @@ MonoBehaviour:
   _id: classic
   _canvas: {fileID: 6904078877471481736}
   _raycaster: {fileID: 6904078877471481738}
+  _closeButtons:
+  - {fileID: 5801825121122741441}
 --- !u!1 &8903942181699613269
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
             _model.OrderChanged += OnOrderChanged;
             _model.Loading += OnLoading;
             _model.LoadStatusUpdated += OnLoadStatusUpdated;
+            _view.CloseClicked += OnCloseClicked;
         }
 
         private void RemoveListeners()
@@ -39,6 +40,12 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
             _model.OrderChanged -= OnOrderChanged;
             _model.Loading -= OnLoading;
             _model.LoadStatusUpdated -= OnLoadStatusUpdated;
+            _view.CloseClicked -= OnCloseClicked;
+        }
+
+        private void OnCloseClicked()
+        {
+            _model.Close();
         }
 
         private void OnClosed(IPopupModel model)

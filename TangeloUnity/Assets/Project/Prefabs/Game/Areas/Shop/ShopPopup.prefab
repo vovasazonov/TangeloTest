@@ -244,6 +244,8 @@ MonoBehaviour:
   _id: shop
   _canvas: {fileID: 4394422967456315214}
   _raycaster: {fileID: 4394422967456315212}
+  _closeButtons:
+  - {fileID: 5145857172360732565}
 --- !u!1 &5145857173276699666
 GameObject:
   m_ObjectHideFlags: 0
