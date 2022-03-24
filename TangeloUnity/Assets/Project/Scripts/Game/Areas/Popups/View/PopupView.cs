@@ -10,6 +10,7 @@ namespace Project.Scripts.Game.Areas.Popups.View
         [SerializeField] private string _id;
         [SerializeField] protected Canvas _canvas;
         [SerializeField] protected GraphicRaycaster _raycaster;
+        [SerializeField] protected Animator _animator;
         [SerializeField] protected List<Button> _closeButtons;
         [SerializeField] protected List<UrlButton> _urlButtons;
         [SerializeField] protected List<UrlImage> _urlTextures;
@@ -25,8 +26,34 @@ namespace Project.Scripts.Game.Areas.Popups.View
             _canvas.sortingOrder = order;
         }
 
-        public abstract void Open();
-        public abstract void Close();
+        public void Open()
+        {
+            _raycaster.enabled = true;
+            _canvas.enabled = true;
+            if (_animator != null)
+            {
+                _animator.Play("OpenPopup");
+            }
+        }
+
+        public void Close()
+        {
+            if (_animator != null)
+            {
+                _raycaster.enabled = false;
+                _animator.Play("ClosePopup");
+            }
+            else
+            {
+                CloseImmediately();
+            }
+        }
+
+        public void CloseImmediately()
+        {
+            _raycaster.enabled = false;
+            _canvas.enabled = false;
+        }
 
         private void OnEnable()
         {

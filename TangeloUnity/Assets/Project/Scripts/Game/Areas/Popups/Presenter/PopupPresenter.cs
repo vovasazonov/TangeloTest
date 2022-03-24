@@ -28,7 +28,7 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
 
         private void RenderView()
         {
-            _view.Close();
+            _view.CloseImmediately();
         }
 
         private void AddListeners()

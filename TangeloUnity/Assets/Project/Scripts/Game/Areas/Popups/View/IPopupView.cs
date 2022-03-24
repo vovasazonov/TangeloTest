@@ -14,5 +14,6 @@ namespace Project.Scripts.Game.Areas.Popups.View
         void SetOrder(int order);
         void Open();
         void Close();
+        void CloseImmediately();
     }
 }
