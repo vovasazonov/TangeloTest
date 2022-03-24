@@ -6,12 +6,14 @@ namespace Project.Scripts.Game.Areas.ClassicPopup.View
     {
         public override void Open()
         {
-            gameObject.SetActive(true);
+            _canvas.enabled = true;
+            _raycaster.enabled = true;
         }
 
         public override void Close()
         {
-            gameObject.SetActive(false);
+            _canvas.enabled = false;
+            _raycaster.enabled = false;
         }
     }
 }

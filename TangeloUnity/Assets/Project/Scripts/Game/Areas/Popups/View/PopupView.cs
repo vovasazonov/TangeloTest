@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Project.Scripts.Game.Areas.Popups.View
 {
     public abstract class PopupView : MonoBehaviour, IPopupView
     {
         [SerializeField] private string _id;
-        [SerializeField] private Canvas _canvas;
+        [SerializeField] protected Canvas _canvas;
+        [SerializeField] protected GraphicRaycaster _raycaster;
 
         public string Id => _id;
         
