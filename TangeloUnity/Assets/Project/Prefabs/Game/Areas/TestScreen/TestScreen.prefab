@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 2399286390107942260}
   - component: {fileID: 8428244384373419227}
   m_Layer: 5
-  m_Name: OpenPopupButton
+  m_Name: OpenClassicPopupButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -793,7 +793,7 @@ GameObject:
   - component: {fileID: 6638725759503154054}
   - component: {fileID: 8807056628246607292}
   m_Layer: 5
-  m_Name: OpenPopupButton
+  m_Name: OpenShopPopupButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -947,11 +947,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _openAllPopupsButton: {fileID: 783106157259441075}
   _openPopupButtons:
-  - Id: popup-1
+  - Id: rateus
     Button: {fileID: 7705232021283649355}
-  - Id: popup-2
+  - Id: shop
     Button: {fileID: 8807056628246607292}
-  - Id: popup-3
+  - Id: classic
     Button: {fileID: 8428244384373419227}
 --- !u!1 &7340566622524121563
 GameObject:
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 434116276548564972}
   - component: {fileID: 7705232021283649355}
   m_Layer: 5
-  m_Name: OpenPopupButton
+  m_Name: OpenRateusPopupButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
