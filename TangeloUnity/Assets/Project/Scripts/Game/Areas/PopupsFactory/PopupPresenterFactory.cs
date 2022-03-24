@@ -1,7 +1,6 @@
 ﻿using System;
 using Project.Scripts.Core.Logger;
 using Project.Scripts.Core.Presenter;
-using Project.Scripts.Game.Areas.Browser;
 using Project.Scripts.Game.Areas.Browser.Model;
 using Project.Scripts.Game.Areas.ClassicPopup.Presenter;
 using Project.Scripts.Game.Areas.ClassicPopup.View;
