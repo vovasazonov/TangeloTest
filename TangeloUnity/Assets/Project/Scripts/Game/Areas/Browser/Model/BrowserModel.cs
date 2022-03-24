@@ -23,7 +23,7 @@ namespace Project.Scripts.Game.Areas.Browser.Model
             Application.OpenURL(url);
         }
 
-        public void Download<T>(string url, Action<T> success, Action error)
+        public void Download<T>(string url, Action<T> success, Action<string> error)
         {
             ++_idCounter;
             int id = _idCounter;
@@ -41,13 +41,13 @@ namespace Project.Scripts.Game.Areas.Browser.Model
             }
         }
 
-        private IEnumerator DownloadCoroutine(string url, Action<Texture> success, Action error, int id)
+        private IEnumerator DownloadCoroutine(string url, Action<Texture> success, Action<string> error, int id)
         {
             UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
-                error?.Invoke();
+                error?.Invoke(request.result.ToString());
             }
             else
             {

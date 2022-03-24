@@ -1,5 +1,77 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8665216958721740510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249945151601651087}
+  - component: {fileID: 8537272348561142232}
+  - component: {fileID: 5356307595966726641}
+  m_Layer: 5
+  m_Name: StarsImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &249945151601651087
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665216958721740510}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3009114269213336134}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000027657, y: 243}
+  m_SizeDelta: {x: 770.7328, y: 335.8622}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8537272348561142232
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665216958721740510}
+  m_CullTransparentMesh: 1
+--- !u!114 &5356307595966726641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665216958721740510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1001 &1786449690829497901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55,9 +127,26 @@ PrefabInstance:
       propertyPath: _id
       value: rateus
       objectReference: {fileID: 0}
+    - target: {fileID: 7553650659588728294, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: _urlTextures.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7553650659588728294, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: _urlTextures.Array.data[0].Url
+      value: https://www.kindpng.com/picc/m/573-5738073_rate-us-png-free-download-rate-us-png.png
+      objectReference: {fileID: 0}
+    - target: {fileID: 7553650659588728294, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: _urlTextures.Array.data[0].RawImage
+      value: 
+      objectReference: {fileID: 5356307595966726641}
     - target: {fileID: 7834779325143673887, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
       propertyPath: m_Name
-      value: RateUsPopup
+      value: RateUsPopup Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+--- !u!224 &3009114269213336134 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3533139859042108523, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+  m_PrefabInstance: {fileID: 1786449690829497901}
+  m_PrefabAsset: {fileID: 0}

@@ -1,4 +1,5 @@
 ﻿using System;
+using Project.Scripts.Core.Logger;
 using Project.Scripts.Core.Presenter;
 using Project.Scripts.Game.Areas.Browser;
 using Project.Scripts.Game.Areas.Browser.Model;
@@ -15,12 +16,14 @@ namespace Project.Scripts.Game.Areas.PopupsFactory
     public class PopupPresenterFactory : IPopupPresenterFactory
     {
         private readonly IPopupsModel _popupsModel;
-        private readonly IBrowserModel m_BrowserModel;
+        private readonly IBrowserModel _browserModel;
+        private readonly ILogger _logger;
 
-        public PopupPresenterFactory(IPopupsModel popupsModel, IBrowserModel browserModel)
+        public PopupPresenterFactory(IPopupsModel popupsModel, IBrowserModel browserModel, ILogger logger)
         {
             _popupsModel = popupsModel;
-            m_BrowserModel = browserModel;
+            _browserModel = browserModel;
+            _logger = logger;
         }
 
         public IPresenter Create(IPopupView view)
@@ -33,10 +36,10 @@ namespace Project.Scripts.Game.Areas.PopupsFactory
             switch (view)
             {
                 case ClassicPopupView _:
-                    presenter = new ClassicPopupPresenter(model, view, m_BrowserModel);
+                    presenter = new ClassicPopupPresenter(model, view, _browserModel, _logger);
                     break;
                 case ShopPopupView shopPopupView:
-                    presenter = new ShopPopupPresenter(model, view, shopPopupView, m_BrowserModel);
+                    presenter = new ShopPopupPresenter(model, view, shopPopupView, _browserModel, _logger);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(view));

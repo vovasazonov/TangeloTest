@@ -5,6 +5,7 @@ using Project.Scripts.Game.Areas.Popups.Model;
 using Project.Scripts.Game.Areas.Popups.View;
 using UnityEngine;
 using UnityEngine.UI;
+using ILogger = Project.Scripts.Core.Logger.ILogger;
 
 namespace Project.Scripts.Game.Areas.Popups.Presenter
 {
@@ -13,14 +14,16 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
         private readonly IPopupView _view;
         private readonly IPopupModel _model;
         private readonly IBrowserModel _browser;
+        private readonly ILogger _logger;
 
         private int _loadedTextures;
 
-        protected PopupPresenter(IPopupModel model, IPopupView view, IBrowserModel browser)
+        protected PopupPresenter(IPopupModel model, IPopupView view, IBrowserModel browser, ILogger logger)
         {
             _view = view;
             _model = model;
             _browser = browser;
+            _logger = logger;
 
             AddListeners();
             RenderView();
@@ -106,7 +109,7 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
             _loadedTextures = 0;
             foreach (var urlImage in _view.UrlImages)
             {
-                _browser.Download<Texture>(urlImage.Url, t => OnSuccessLoadTexture(t, urlImage.RawImage), null);
+                _browser.Download<Texture>(urlImage.Url, t => OnSuccessLoadTexture(t, urlImage.RawImage), OnErrorLoadTexture);
             }
         }
 
@@ -119,6 +122,11 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
             {
                 SetViewLoaded();
             }
+        }
+
+        private void OnErrorLoadTexture(string message)
+        {
+            _logger.LogError(message);
         }
 
         private void UnloadView()
