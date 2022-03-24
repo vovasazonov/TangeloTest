@@ -49,14 +49,9 @@ namespace Project.Scripts.Game.Areas.Popups
             _gate.OpenAll();
         }
 
-        public void AddToQueueDisplay(string id)
+        public void QueueDisplay(string id)
         {
-            _queue.Add(id);
-        }
-
-        public void RemoveFromQueueDisplay(string id)
-        {
-            _queue.Remove(id);
+            _queue.Enqueue(id);
         }
 
         public void Dispose()

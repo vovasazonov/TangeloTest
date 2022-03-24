@@ -8,7 +8,6 @@
         void CloseUnloaded(string id);
         void CloseAll();
         void OpenAll();
-        void AddToQueueDisplay(string id);
-        void RemoveFromQueueDisplay(string id);
+        void QueueDisplay(string id);
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Project.Scripts.Game.Areas.Popups.Model;
 
 namespace Project.Scripts.Game.Areas.Popups.QueueDisplay
@@ -8,7 +7,7 @@ namespace Project.Scripts.Game.Areas.Popups.QueueDisplay
     public class QueuePopupDisplay : IQueuePopupDisplay, IDisposable
     {
         private readonly IPopupsModel _model;
-        private Queue<IPopupModel> _queue = new Queue<IPopupModel>();
+        private readonly Queue<IPopupModel> _queue = new Queue<IPopupModel>();
         private bool _isProcess;
         private IPopupModel _loadingPopup;
 
@@ -17,52 +16,27 @@ namespace Project.Scripts.Game.Areas.Popups.QueueDisplay
             _model = model;
         }
 
-        public void Add(string id)
+        public void Enqueue(string id)
         {
             _queue.Enqueue(_model.Popups[id]);
             if (!_isProcess)
             {
-                StartProcess();
+                Process();
             }
         }
 
-        public void Remove(string id)
-        {
-            if (_loadingPopup != null && _loadingPopup.Id == id)
-            {
-                StopProcess();
-
-                if (_queue.Count > 0)
-                {
-                    StartProcess();
-                }
-            }
-
-            _queue = new Queue<IPopupModel>(_queue.Where(x => x.Id != id));
-            if (_queue.Count == 0)
-            {
-                StopProcess();
-            }
-        }
-
-        private void StartProcess()
+        private void Process()
         {
             if (_queue.Count > 0)
             {
                 _isProcess = true;
-
                 _loadingPopup = _queue.Dequeue();
                 AddLoadingPopupListeners(_loadingPopup);
                 _loadingPopup.OpenLoaded();
             }
-        }
-
-        private void StopProcess()
-        {
-            _isProcess = false;
-            if (_loadingPopup != null)
+            else
             {
-                RemoveLoadingPopupListeners(_loadingPopup);
+                _isProcess = false;
             }
         }
 
@@ -81,9 +55,8 @@ namespace Project.Scripts.Game.Areas.Popups.QueueDisplay
         private void OnClosed(IPopupModel model)
         {
             RemoveLoadingPopupListeners(_loadingPopup);
-            _queue.Enqueue(_loadingPopup);
             _loadingPopup = null;
-            StartProcess();
+            Process();
         }
 
         private void OnLoadStatusUpdated()

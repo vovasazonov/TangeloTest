@@ -2,7 +2,6 @@
 {
     public interface IQueuePopupDisplay
     {
-        void Add(string id);
-        void Remove(string id);
+        void Enqueue(string id);
     }
 }
