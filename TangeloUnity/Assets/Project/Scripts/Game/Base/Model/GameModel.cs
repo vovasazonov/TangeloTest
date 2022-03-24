@@ -1,4 +1,5 @@
 ﻿using System;
+using Project.Scripts.Core.Coroutine;
 using Project.Scripts.Game.Areas.Browser.Model;
 using Project.Scripts.Game.Areas.Popups.Model;
 
@@ -12,15 +13,16 @@ namespace Project.Scripts.Game.Base.Model
         public IPopupsModel Popups => _popups;
         public IBrowserModel Browser => _browser;
 
-        public GameModel()
+        public GameModel(ICoroutineFactory coroutineFactory)
         {
             _popups = new PopupsModel();
-            _browser = new BrowserModel();
+            _browser = new BrowserModel(coroutineFactory);
         }
 
         public void Dispose()
         {
             _popups.Dispose();
+            _browser.Dispose();
         }
     }
 }

@@ -1,3 +1,4 @@
+using Project.Scripts.Core.Coroutine;
 using Project.Scripts.Game;
 using Project.Scripts.Game.Base.View;
 using UnityEngine;
@@ -10,7 +11,8 @@ public class Entry : MonoBehaviour
     
     private void Start()
     {
-        _game = new Game(_view);
+        var coroutineFactory = new CoroutineFactory(this);
+        _game = new Game(_view, coroutineFactory);
     }
 
     private void OnDestroy()

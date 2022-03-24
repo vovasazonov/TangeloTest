@@ -1,4 +1,5 @@
 ﻿using System;
+using Project.Scripts.Core.Coroutine;
 using Project.Scripts.Game.Areas.Popups;
 using Project.Scripts.Game.Base.Model;
 using Project.Scripts.Game.Base.Presenter;
@@ -12,10 +13,10 @@ namespace Project.Scripts.Game
         private readonly GameModel _model;
         private readonly IDisposable _presenter;
 
-        public Game(IGameView view)
+        public Game(IGameView view, ICoroutineFactory coroutineFactory)
         {
             _view = view;
-            _model = new GameModel();
+            _model = new GameModel(coroutineFactory);
             var popups = new PopupsFacade(_model.Popups);
             _presenter = new GamePresenter(_model, _view, popups);
         }
