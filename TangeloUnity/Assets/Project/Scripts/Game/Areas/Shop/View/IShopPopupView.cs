@@ -2,6 +2,6 @@
 {
     public interface IShopPopupView
     {
-        
+        int AvailableCoins { set; }
     }
 }

@@ -14,6 +14,13 @@ namespace Project.Scripts.Game.Areas.Shop.Presenter
         public ShopPopupPresenter(IPopupModel model, IPopupView view, IShopPopupView shopView, IBrowserModel browser, ILogger logger) : base(model, view, browser, logger)
         {
             _shopView = shopView;
+
+            RenderView();
+        }
+
+        private void RenderView()
+        {
+            _shopView.AvailableCoins = 999999;
         }
     }
 }
