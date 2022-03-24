@@ -13,5 +13,13 @@ namespace Project.Scripts.Game.Areas.Shop.Presenter
         {
             _shopView = shopView;
         }
+
+        protected override void LoadView()
+        {
+        }
+
+        protected override void UnloadView()
+        {
+        }
     }
 }

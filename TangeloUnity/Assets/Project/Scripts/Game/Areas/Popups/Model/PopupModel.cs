@@ -7,8 +7,12 @@ namespace Project.Scripts.Game.Areas.Popups.Model
         public event Action<IPopupModel> Opened;
         public event Action<IPopupModel> Closed;
         public event Action OrderChanged;
+        public event Action LoadStatusUpdated;
+        public event Action Loading;
 
         private int _order;
+        private bool _isLoaded;
+        private bool _isOpenOnLoad;
 
         public string Id { get; }
 
@@ -24,6 +28,21 @@ namespace Project.Scripts.Game.Areas.Popups.Model
 
         public bool IsOpen { get; private set; }
 
+        public bool IsLoaded
+        {
+            get => _isLoaded;
+            set
+            {
+                _isLoaded = value;
+                LoadStatusUpdated?.Invoke();
+
+                if (_isOpenOnLoad && _isLoaded)
+                {
+                    Open();
+                }
+            }
+        }
+
         public PopupModel(string id)
         {
             Id = id;
@@ -31,7 +50,9 @@ namespace Project.Scripts.Game.Areas.Popups.Model
 
         public void Open()
         {
+            Load();
             IsOpen = true;
+            _isOpenOnLoad = false;
             Opened?.Invoke(this);
         }
 
@@ -39,6 +60,28 @@ namespace Project.Scripts.Game.Areas.Popups.Model
         {
             IsOpen = false;
             Closed?.Invoke(this);
+        }
+
+        public void Load()
+        {
+            Loading?.Invoke();
+        }
+
+        public void Unload()
+        {
+            IsLoaded = false;
+        }
+
+        public void OpenLoaded()
+        {
+            Load();
+            _isOpenOnLoad = true;
+        }
+
+        public void CloseUnloaded()
+        {
+            Unload();
+            Close();
         }
     }
 }

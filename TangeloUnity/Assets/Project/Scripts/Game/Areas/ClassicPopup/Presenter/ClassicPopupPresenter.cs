@@ -9,5 +9,13 @@ namespace Project.Scripts.Game.Areas.ClassicPopup.Presenter
         public ClassicPopupPresenter(IPopupModel model, IPopupView view) : base(model, view)
         {
         }
+
+        protected override void LoadView()
+        {
+        }
+
+        protected override void UnloadView()
+        {
+        }
     }
 }
