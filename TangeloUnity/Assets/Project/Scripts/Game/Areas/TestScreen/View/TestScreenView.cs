@@ -12,6 +12,7 @@ namespace Project.Scripts.Game.Areas.TestMenu.View
 
         [SerializeField] private Button _openAllPopupsButton;
         [SerializeField] private List<PopupButton> _openPopupButtons;
+        private bool _isDestroyed;
 
         private void OnEnable()
         {
@@ -37,7 +38,15 @@ namespace Project.Scripts.Game.Areas.TestMenu.View
 
         public void Dispose()
         {
-            Destroy(gameObject);
+            if (!_isDestroyed)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            _isDestroyed = true;
         }
 
         [Serializable] private struct PopupButton
