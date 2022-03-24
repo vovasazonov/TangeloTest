@@ -1,7 +1,10 @@
-﻿using Project.Scripts.Core.Presenter;
+﻿using System.Linq;
+using Project.Scripts.Core.Presenter;
 using Project.Scripts.Game.Areas.Browser.Model;
 using Project.Scripts.Game.Areas.Popups.Model;
 using Project.Scripts.Game.Areas.Popups.View;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Project.Scripts.Game.Areas.Popups.Presenter
 {
@@ -11,12 +14,14 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
         private readonly IPopupModel _model;
         private readonly IBrowserModel _browser;
 
+        private int _loadedTextures;
+
         protected PopupPresenter(IPopupModel model, IPopupView view, IBrowserModel browser)
         {
             _view = view;
             _model = model;
             _browser = browser;
-            
+
             AddListeners();
             RenderView();
         }
@@ -86,14 +91,46 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
             }
         }
 
-        protected void OnViewLoaded()
+        private bool IsViewLoaded()
+        {
+            return _loadedTextures == _view.UrlImages.Count();
+        }
+
+        private void SetViewLoaded()
         {
             _model.IsLoaded = true;
         }
 
-        protected abstract void LoadView();
-        protected abstract void UnloadView();
-        
+        private void LoadView()
+        {
+            _loadedTextures = 0;
+            foreach (var urlImage in _view.UrlImages)
+            {
+                _browser.Download<Texture>(urlImage.Url, t => OnSuccessLoadTexture(t, urlImage.RawImage), null);
+            }
+        }
+
+        private void OnSuccessLoadTexture(Texture texture, RawImage rawImage)
+        {
+            ++_loadedTextures;
+            rawImage.texture = texture;
+
+            if (IsViewLoaded())
+            {
+                SetViewLoaded();
+            }
+        }
+
+        private void UnloadView()
+        {
+            foreach (var urlImage in _view.UrlImages)
+            {
+                urlImage.RawImage.texture = null;
+            }
+
+            _loadedTextures = 0;
+        }
+
         public void Dispose()
         {
             UnloadView();

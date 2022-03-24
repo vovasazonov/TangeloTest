@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Project.Scripts.Game.Areas.Popups.View
 {
@@ -8,7 +9,8 @@ namespace Project.Scripts.Game.Areas.Popups.View
         event Action<string> UrlClicked;
         
         string Id { get; }
-        
+        IEnumerable<UrlImage> UrlImages { get; }
+
         void SetOrder(int order);
         void Open();
         void Close();

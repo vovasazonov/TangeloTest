@@ -12,11 +12,13 @@ namespace Project.Scripts.Game.Areas.Popups.View
         [SerializeField] protected GraphicRaycaster _raycaster;
         [SerializeField] protected List<Button> _closeButtons;
         [SerializeField] protected List<UrlButton> _urlButtons;
+        [SerializeField] protected List<UrlImage> _urlTextures;
 
         public event Action CloseClicked;
         public event Action<string> UrlClicked;
 
         public string Id => _id;
+        public IEnumerable<UrlImage> UrlImages => _urlTextures;
 
         public void SetOrder(int order)
         {
@@ -53,7 +55,8 @@ namespace Project.Scripts.Game.Areas.Popups.View
             Destroy(gameObject);
         }
 
-        [Serializable] protected struct UrlButton
+        [Serializable] 
+        protected struct UrlButton
         {
             public string Url;
             public Button Button;
