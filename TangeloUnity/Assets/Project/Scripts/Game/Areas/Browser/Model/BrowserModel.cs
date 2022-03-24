@@ -23,14 +23,14 @@ namespace Project.Scripts.Game.Areas.Browser.Model
             Application.OpenURL(url);
         }
 
-        public void Download<T>(string url, Action<T> success, Action<string> error)
+        public void Download<T>(string url, Action<T> success, Action<string> error) where T : class
         {
             ++_idCounter;
             int id = _idCounter;
 
             if (typeof(T) == typeof(Texture))
             {
-                void SuccessDownload(Texture texture) => success.Invoke((T)Convert.ChangeType(texture, typeof(T)));
+                void SuccessDownload(Texture texture) => success.Invoke(texture as T);
                 var coroutine = _coroutineFactory.Create(() => DownloadCoroutine(url, SuccessDownload, error, id));
                 _coroutines.Add(id, coroutine);
                 coroutine.Start();
@@ -43,15 +43,17 @@ namespace Project.Scripts.Game.Areas.Browser.Model
 
         private IEnumerator DownloadCoroutine(string url, Action<Texture> success, Action<string> error, int id)
         {
-            UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
-            yield return request.SendWebRequest();
-            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
+            using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
             {
-                error?.Invoke(request.result.ToString());
-            }
-            else
-            {
-                success?.Invoke(((DownloadHandlerTexture)request.downloadHandler).texture);
+                yield return request.SendWebRequest();
+                if (request.result != UnityWebRequest.Result.Success)
+                {
+                    error?.Invoke(request.result.ToString());
+                }
+                else
+                {
+                    success?.Invoke(((DownloadHandlerTexture)request.downloadHandler).texture);
+                }
             }
 
             _coroutines.Remove(id);

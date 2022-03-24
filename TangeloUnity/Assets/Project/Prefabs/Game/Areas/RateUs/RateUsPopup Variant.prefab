@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7553650659588728294, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
       propertyPath: _urlTextures.Array.data[0].Url
-      value: https://www.kindpng.com/picc/m/573-5738073_rate-us-png-free-download-rate-us-png.png
+      value: https://cdn.shopify.com/s/files/1/1963/1339/files/G20-full-right-front.jpg
       objectReference: {fileID: 0}
     - target: {fileID: 7553650659588728294, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
       propertyPath: _urlTextures.Array.data[0].RawImage
