@@ -1,14 +1,22 @@
-﻿using Project.Scripts.Game.Areas.Popups.Model;
+﻿using System;
+using Project.Scripts.Game.Areas.Popups.Model;
 
 namespace Project.Scripts.Game.Base.Model
 {
-    public class GameModel : IGameModel
+    public class GameModel : IGameModel, IDisposable
     {
-        public IPopupsModel Popups { get; }
+        private readonly PopupsModel _popups;
+        
+        public IPopupsModel Popups => _popups;
 
-        public GameModel(IPopupsModel popups)
+        public GameModel()
         {
-            Popups = popups;
+            _popups = new PopupsModel();
+        }
+
+        public void Dispose()
+        {
+            _popups.Dispose();
         }
     }
 }

@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Scripts.Game.Areas.Popups.Model.Sorter;
 
 namespace Project.Scripts.Game.Areas.Popups.Model
 {
-    public class PopupsModel : IPopupsModel, IDisposable, IPopups
+    public class PopupsModel : IPopupsModel, IDisposable
     {
+        public event Action<string> PopupInitialized;
+        
         private readonly List<IPopupModel> _opens = new List<IPopupModel>();
-        private readonly IPopupsSorter _sorter = new PopupsSorter();
-
         private readonly Dictionary<string, IPopupModel> _popups = new Dictionary<string, IPopupModel>();
+
         public IReadOnlyDictionary<string, IPopupModel> Popups => _popups;
 
         public PopupsModel()
@@ -27,6 +27,7 @@ namespace Project.Scripts.Game.Areas.Popups.Model
         public void Initialize(string id)
         {
             _popups.Add(id, new PopupModel(id));
+            CallInitialized(id);
         }
 
         private void AddListeners()
@@ -60,7 +61,6 @@ namespace Project.Scripts.Game.Areas.Popups.Model
         private void OnClosed(IPopupModel model)
         {
             _opens.Remove(model);
-            _sorter.UnSort(model);
         }
 
         private void OnOpened(IPopupModel model)
@@ -68,46 +68,17 @@ namespace Project.Scripts.Game.Areas.Popups.Model
             if (!_opens.Contains(model))
             {
                 _opens.Add(model);
-                _sorter.Sort(model);
-            }
-        }
-        
-        public void Open(string id)
-        {
-            _popups[id].Open();
-        }
-
-        public void Close(string id)
-        {
-            _popups[id].Close();
-        }
-
-        public void CloseAll()
-        {
-            foreach (var popup in _popups.Values)
-            {
-                if (popup.IsOpen)
-                {
-                    popup.Close();
-                }
-            }
-        }
-
-        public void OpenAll()
-        {
-            foreach (var popup in _popups.Values)
-            {
-                if (!popup.IsOpen)
-                {
-                    popup.Open();
-                }
             }
         }
 
         public void Dispose()
         {
             RemoveListeners();
-            _sorter.Clear();
+        }
+
+        private void CallInitialized(string id)
+        {
+            PopupInitialized?.Invoke(id);
         }
     }
 }

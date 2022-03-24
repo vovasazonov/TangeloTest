@@ -1,5 +1,5 @@
 ﻿using Project.Scripts.Game.Areas.Popups.Model;
-using Project.Scripts.Game.Areas.Popups.PopupPresenter;
+using Project.Scripts.Game.Areas.Popups.Presenter;
 using Project.Scripts.Game.Areas.Popups.View;
 using Project.Scripts.Game.Areas.Shop.View;
 

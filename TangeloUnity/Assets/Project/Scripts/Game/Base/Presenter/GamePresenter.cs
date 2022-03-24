@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Project.Scripts.Core.Presenter;
 using Project.Scripts.Game.Areas.Popups;
-using Project.Scripts.Game.Areas.Popups.PopupPresenter;
+using Project.Scripts.Game.Areas.Popups.Presenter;
 using Project.Scripts.Game.Areas.PopupsFactory;
 using Project.Scripts.Game.Areas.TestMenu.Presenter;
 using Project.Scripts.Game.Base.Model;

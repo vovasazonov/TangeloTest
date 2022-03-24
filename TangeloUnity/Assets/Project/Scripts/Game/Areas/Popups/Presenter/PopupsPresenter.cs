@@ -2,7 +2,7 @@
 using Project.Scripts.Core.Presenter;
 using Project.Scripts.Game.Areas.Popups.View;
 
-namespace Project.Scripts.Game.Areas.Popups.PopupPresenter
+namespace Project.Scripts.Game.Areas.Popups.Presenter
 {
     public class PopupsPresenter : IPresenter
     {
