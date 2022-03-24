@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5143180142940502636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8669692963910114361}
+  - component: {fileID: 6291178601772748228}
+  - component: {fileID: 5648994239800094389}
+  m_Layer: 5
+  m_Name: IconShop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8669692963910114361
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143180142940502636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4663547552630284935}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 630}
+  m_SizeDelta: {x: 275.9257, y: 266.4162}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6291178601772748228
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143180142940502636}
+  m_CullTransparentMesh: 1
+--- !u!114 &5648994239800094389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143180142940502636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!1001 &8192052331161921260
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2502003498113149914, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502003498113149914, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502003498113149914, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502003498113149914, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502003498113149914, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502003498113149914, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502003498113149914, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502003498113149914, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502003498113149914, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502003498113149914, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502003498113149914, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7553650659588728294, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: _id
+      value: shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7553650659588728294, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: _urlTextures.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7553650659588728294, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: _urlTextures.Array.data[0].Url
+      value: https://i.pinimg.com/736x/45/c4/99/45c499cfc2735d4accdcd0525d7a5cca--agence-web-maps.jpg
+      objectReference: {fileID: 0}
+    - target: {fileID: 7553650659588728294, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: _urlTextures.Array.data[1].Url
+      value: https://igorzuevich.com/wp-content/uploads/2016/01/shop-icon.png
+      objectReference: {fileID: 0}
+    - target: {fileID: 7553650659588728294, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: _urlTextures.Array.data[0].RawImage
+      value: 
+      objectReference: {fileID: 4229332852165632109}
+    - target: {fileID: 7553650659588728294, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: _urlTextures.Array.data[1].RawImage
+      value: 
+      objectReference: {fileID: 5648994239800094389}
+    - target: {fileID: 7834779325143673887, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+      propertyPath: m_Name
+      value: ShopPopup
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 738331299232419991, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+--- !u!1 &4878495425033424458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3603972121512732838, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+  m_PrefabInstance: {fileID: 8192052331161921260}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4663547552630284935 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3533139859042108523, guid: 9ae035480c302974b9fb71a035f5c05e, type: 3}
+  m_PrefabInstance: {fileID: 8192052331161921260}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4229332852165632109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4878495425033424458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1

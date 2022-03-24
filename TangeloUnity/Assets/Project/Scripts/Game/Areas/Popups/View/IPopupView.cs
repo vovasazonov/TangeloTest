@@ -7,6 +7,7 @@ namespace Project.Scripts.Game.Areas.Popups.View
     {
         event Action CloseClicked;
         event Action<string> UrlClicked;
+        event Action Disappeared;
         
         string Id { get; }
         IEnumerable<UrlImage> UrlImages { get; }
@@ -15,5 +16,6 @@ namespace Project.Scripts.Game.Areas.Popups.View
         void Open();
         void Close();
         void CloseImmediately();
+        void UnloadUrlImages();
     }
 }

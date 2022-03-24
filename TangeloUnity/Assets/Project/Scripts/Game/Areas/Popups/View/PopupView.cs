@@ -14,9 +14,12 @@ namespace Project.Scripts.Game.Areas.Popups.View
         [SerializeField] protected List<Button> _closeButtons;
         [SerializeField] protected List<UrlButton> _urlButtons;
         [SerializeField] protected List<UrlImage> _urlTextures;
+        
+        private bool _isDestroyed;
 
         public event Action CloseClicked;
         public event Action<string> UrlClicked;
+        public event Action Disappeared;
 
         public string Id => _id;
         public IEnumerable<UrlImage> UrlImages => _urlTextures;
@@ -53,6 +56,23 @@ namespace Project.Scripts.Game.Areas.Popups.View
         {
             _raycaster.enabled = false;
             _canvas.enabled = false;
+            Disappeared?.Invoke();
+        }
+
+        public void UnloadUrlImages()
+        {
+            if (!_isDestroyed)
+            {
+                foreach (var urlImage in _urlTextures)
+                {
+                    var texture = urlImage.RawImage.texture;
+                    if (texture != null)
+                    {
+                        Destroy(texture);
+                        urlImage.RawImage.texture = null;
+                    }
+                }
+            }
         }
 
         private void OnEnable()
@@ -80,6 +100,11 @@ namespace Project.Scripts.Game.Areas.Popups.View
         public void Dispose()
         {
             Destroy(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            _isDestroyed = true;
         }
 
         [Serializable] 

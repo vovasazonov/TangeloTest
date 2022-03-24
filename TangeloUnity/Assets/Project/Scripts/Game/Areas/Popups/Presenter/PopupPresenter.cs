@@ -43,6 +43,7 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
             _model.LoadStatusUpdated += OnLoadStatusUpdated;
             _view.CloseClicked += OnCloseClicked;
             _view.UrlClicked += OnUrlClicked;
+            _view.Disappeared += OnDisappeared;
         }
 
         private void RemoveListeners()
@@ -54,6 +55,12 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
             _model.LoadStatusUpdated -= OnLoadStatusUpdated;
             _view.CloseClicked -= OnCloseClicked;
             _view.UrlClicked -= OnUrlClicked;
+            _view.Disappeared -= OnDisappeared;
+        }
+
+        private void OnDisappeared()
+        {
+            _model.IsLoaded = false;
         }
 
         private void OnUrlClicked(string url)
@@ -139,11 +146,7 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
 
         private void UnloadView()
         {
-            foreach (var urlImage in _view.UrlImages)
-            {
-                urlImage.RawImage.texture = null;
-            }
-
+            _view.UnloadUrlImages();
             _loadedTextures = 0;
         }
 
