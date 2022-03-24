@@ -48,6 +48,7 @@ namespace Project.Scripts.Game.Areas.Popups.Gate
             {
                 if (!popup.IsOpen)
                 {
+                    popup.Load();
                     popup.Open();
                 }
             }

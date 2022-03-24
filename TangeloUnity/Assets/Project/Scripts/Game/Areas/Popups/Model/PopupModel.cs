@@ -50,7 +50,6 @@ namespace Project.Scripts.Game.Areas.Popups.Model
 
         public void Open()
         {
-            Load();
             IsOpen = true;
             _isOpenOnLoad = false;
             Opened?.Invoke(this);
@@ -74,8 +73,8 @@ namespace Project.Scripts.Game.Areas.Popups.Model
 
         public void OpenLoaded()
         {
-            Load();
             _isOpenOnLoad = true;
+            Load();
         }
 
         public void CloseUnloaded()

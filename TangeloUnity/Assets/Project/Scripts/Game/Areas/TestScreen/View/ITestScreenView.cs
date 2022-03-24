@@ -6,5 +6,6 @@ namespace Project.Scripts.Game.Areas.TestScreen.View
     {
         event Action<string> OpenPopupClicked;
         event Action OpenAllPopupsClicked;
+        event Action QueueAllPopupsClicked;
     }
 }

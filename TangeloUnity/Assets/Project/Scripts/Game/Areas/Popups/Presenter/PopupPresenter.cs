@@ -107,10 +107,13 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
         private void LoadView()
         {
             _loadedTextures = 0;
+
             foreach (var urlImage in _view.UrlImages)
             {
                 _browser.Download<Texture>(urlImage.Url, t => OnSuccessLoadTexture(t, urlImage.RawImage), OnErrorLoadTexture);
             }
+            
+            CheckViewLoaded();
         }
 
         private void OnSuccessLoadTexture(Texture texture, RawImage rawImage)
@@ -118,6 +121,11 @@ namespace Project.Scripts.Game.Areas.Popups.Presenter
             ++_loadedTextures;
             rawImage.texture = texture;
 
+            CheckViewLoaded();
+        }
+
+        private void CheckViewLoaded()
+        {
             if (IsViewLoaded())
             {
                 SetViewLoaded();

@@ -21,7 +21,7 @@ namespace Project.Scripts.Game.Base.Presenter
             _presenters.Add(new PrimitivePresenter(view.Camera.Create()));
             _presenters.Add(new PrimitivePresenter(view.EventSystem.Create()));
             _presenters.Add(new PopupsPresenter(popupsPresenterFactory, view.Popups));
-            _presenters.Add(new TestScreenPresenter(view.TestScreen, popups));
+            _presenters.Add(new TestScreenPresenter(view.TestScreen, popups, model.Popups));
         }
 
         public void Dispose()
